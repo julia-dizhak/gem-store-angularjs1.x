@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html ng-app="gemStore">
+  <head>
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0-alpha.6/css/bootstrap.css"> -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script src="static/js/app.js"></script>
+    <script src="static/js/products.js"></script>
+
+    <style>
+       .list-group {
+         width: 1300px;
+         text-align: center;
+         margin: auto;
+       }
+       .list-group-item {
+         width: 30%;
+         float: left;
+         margin: 0 1.5%;
+         padding: 5px 10px;
+         margin: 0 1.5%;
+       }
+
+       /*form validation*/
+       .ng-invalid.ng-dirty {
+         border-color: red;
+       }
+       .ng-valid.ng-dirty {
+         border-color: green;
+       }
+    </style>
+  </head>
+
+  <body ng-controller="StoreController as store">
+
+    <div class="list-group">
+      <header>
+        <!-- <h1 class="text-center">Flatlander Crafted Gems</h1> -->
+        <h2 class="text-center">– an Angular store –</h2>
+      </header>
+
+      <div class="list-group-item" ng-repeat="product in store.products">
+        <product-title></product-title>
+
+        <!-- Image Gallery  -->
+        <!-- <product-gallery></product-gallery> -->
+        <section
+            ng-controller="GalleryController as gallery"
+            ng-show="product.images.length">
+          <div ng-show="product.images">
+            <img
+              class="img img-circle img-thumbnail center-block"
+              ng-src="{{ product.images[gallery.current].full }}">
+            <ul class="clearfix list-inline">
+              <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+                <img ng-src="{{ image.thumb }}">
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <product-tabs></product-tabs>
+    </div>
+
+  </body>
+</html>
