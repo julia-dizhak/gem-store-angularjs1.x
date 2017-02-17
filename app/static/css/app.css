@@ -84,7 +84,10 @@ img{
   background: #ac005f;
 }
 
-
+.list-group header {
+  margin: 0 0 5px 0;
+  text-align: center
+}
 .list-group-item {
   width: 30%;
   float: left;
@@ -99,4 +102,8 @@ img{
 }
 .ng-valid.ng-dirty {
   border-color: green;
+}
+
+blockquote {
+  border: 0
 }
