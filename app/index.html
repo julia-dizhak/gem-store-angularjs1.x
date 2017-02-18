@@ -23,7 +23,7 @@
 
       <div class="list-group">
         <div class="row">
-          <div class="col-md-3" ng-repeat="product in store.products | orderBy:'-price'">
+          <div class="col-md-4" ng-repeat="product in store.products | orderBy:'-price'">
             <div class="list-group-item ">
               <product-title></product-title>
               <section
@@ -32,12 +32,12 @@
                 <div class="img-wrap">
                   <img
                     class="img img-circle img-thumbnail center-block"
-                    ng-src="{{ product.images[gallery.imageIndex].full }}">
+                    ng-src="{{ product.images[gallery.imageIndex] }}">
                   <ul class="clearfix img-thumbnails">
                     <li class="small-image pull-left thumbnail"
                         ng-repeat="image in product.images"
                         ng-click="gallery.currentImageChange($index)">
-                      <img ng-src="{{ image.thumb }}">
+                      <img ng-src="{{ image }}">
                     </li>
                   </ul>
                 </div>

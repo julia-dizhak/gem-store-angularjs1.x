@@ -102,6 +102,10 @@ img{
   box-sizing: border-box;
 }*/
 
+.list-group {
+  margin: auto;
+  text-align: center;
+}
 .list-group header {
   margin: 0 0 5px 0;
   text-align: center
@@ -120,6 +124,15 @@ img{
 }
 .ng-valid.ng-dirty {
   border-color: green;
+}
+
+.col-md-4 {
+  display: inline-block;
+  vertical-align: top;
+  box-sizing: border-box;
+  width: 30%;
+  margin: 0 0 10px 0;
+  float: none;
 }
 
 .tab {
