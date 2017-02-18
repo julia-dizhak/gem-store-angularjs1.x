@@ -1,44 +1,53 @@
 <!DOCTYPE html>
 <html ng-app="gemStore">
+
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <meta charset="utf-8" />
+    <title>AngularJS</title>
+    <link data-require="bootstrap-css" data-semver="3.1.1" rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <!-- <link data-require="semantic-ui@*" data-semver="0.9.6" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.9.6/css/semantic.min.css" /> -->
     <link rel="stylesheet" href="static/css/app.css">
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.js"></script>
+    <script data-require="jquery@*" data-semver="2.0.3" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+    <!-- <script data-require="semantic-ui@*" data-semver="0.9.6" src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/0.9.6/javascript/semantic.min.js"></script> -->
+    <script data-require="angular.js@1.2.x" src="http://code.angularjs.org/1.2.15/angular.js" data-semver="1.2.15"></script>
     <script src="static/js/app.js"></script>
     <script src="static/js/products.js"></script>
   </head>
 
   <body ng-controller="StoreController as store">
-
-    <div class="list-group">
       <header>
         <h1 class="text-center"> a Flatlander Crafted Gems  </h2>
         <h2>by Angular store</h2>
       </header>
 
-      <div class="list-group-item" ng-repeat="product in store.products">
-        <product-title></product-title>
+      <div class="list-group">
+        <div class="row">
+          <div class="col-md-3" ng-repeat="product in store.products | orderBy:'-price'">
+            <div class="list-group-item ">
+              <product-title></product-title>
+              <section
+                  ng-controller="GalleryController as gallery"
+                  ng-show="product.images.length">
+                <div class="img-wrap">
+                  <img
+                    class="img img-circle img-thumbnail center-block"
+                    ng-src="{{ product.images[gallery.imageIndex].full }}">
+                  <ul class="clearfix img-thumbnails">
+                    <li class="small-image pull-left thumbnail"
+                        ng-repeat="image in product.images"
+                        ng-click="gallery.currentImageChange($index)">
+                      <img ng-src="{{ image.thumb }}">
+                    </li>
+                  </ul>
+                </div>
+              </section>
 
-        <!-- Image Gallery  -->
-        <!-- <product-gallery></product-gallery> -->
-        <section
-            ng-controller="GalleryController as gallery"
-            ng-show="product.images.length">
-          <div ng-show="product.images">
-            <img
-              class="img img-circle img-thumbnail center-block"
-              ng-src="{{ product.images[gallery.current].full }}">
-            <ul class="clearfix list-inline">
-              <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
-                <img ng-src="{{ image.thumb }}">
-              </li>
-            </ul>
+              <product-tabs></product-tabs>
+            </div>
           </div>
-        </section>
-
-        <product-tabs></product-tabs>
-    </div>
+        </div>
+      </div>
 
   </body>
 </html>

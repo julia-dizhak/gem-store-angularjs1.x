@@ -1,4 +1,4 @@
 <h3>
-  {{product.name}}
-  <em class="pull-right">{{product.price | currency}}</em>
+  Gem <span class="label label-primary">{{ $index + 1 }}</span> : {{ product.name | uppercase }}
+  <em class="pull-right label label-success">{{ product.price | currency }}</em>
 </h3>
