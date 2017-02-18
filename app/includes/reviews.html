@@ -1,105 +1,63 @@
-
 <div>
-  <!--  Product Reviews List -->
+  <h4>Reviews</h4>
   <ul>
-    <h4> Reviews </h4>
     <li ng-repeat="review in product.reviews">
-
       <blockquote>
-        <strong>{{review.stars}} Stars</strong>
-        {{review.body}}
-        <cite class="clearfix">—{{review.author}}  on {{review.createdOn | date}}</cite>
+        <strong>Stars: {{ review.stars }}</strong>
+        <p>{{ review.body }}</p>
+        <cite class="clearfix">—{{ review.author }}</cite>
+        <span class="">on {{ review.createdOn | date }}</span>
       </blockquote>
     </li>
   </ul>
+  
+  <section class="tab">
+    <form name="reviewForm"
+          role="form"
+          ng-controller="ReviewController as reviews"
+          ng-submit="reviewForm.$valid && reviews.addReview(product)"
+          novalidate>
 
-  <!--  Review Form -->
-  <form name="reviewForm" role="form" ng-controller="ReviewController as reviews" ng-submit="reviews.addReview(product)">
-    <!--  Live Preview -->
-    <blockquote ng-show="reviews.review.stars">
-      <strong>{{reviews.review.stars}} Stars</strong>
-      {{reviews.review.body}}
-      <cite class="clearfix">—{{reviews.review.author}}</cite>
-    </blockquote>
+        <blockquote cite="http://" ng-show="reviews.review.stars">
+          <strong>Stars: {{ reviews.review.stars }}</strong>
+          <p>{{ reviews.review.body }}</p>
+          <div class="clearfix">by : {{ reviews.review.author }}</div>
+        </blockquote>
 
-    <!--  Review Form -->
-    <h4>Submit a Review</h4>
-    <fieldset class="form-group">
-      <select ng-model="reviews.review.stars" class="form-control" ng-options="stars for stars in [5,4,3,2,1]" title="Stars">
-        <option value="">Rate the Product</option>
-      </select>
-    </fieldset>
-    <fieldset class="form-group">
-      <textarea ng-model="reviews.review.body" class="form-control" placeholder="Write a short review of the product..." title="Review"></textarea>
-    </fieldset>
-    <fieldset class="form-group">
-      <input ng-model="reviews.review.author" type="email" class="form-control" placeholder="jimmyDean@sausage.com" title="Email" />
-    </fieldset>
-    <fieldset class="form-group">
-      <input type="submit" class="btn btn-primary pull-right" value="Submit Review" />
-    </fieldset>
-  </form>
+        <h4>Submit a Review</h4>
+        <fieldset class="form-group">
+          <select
+              class="form-control"
+              ng-model="reviews.review.stars"
+              ng-options="stars for stars in [5,4,3,2,1]"
+              title="stars"
+              required>
+              <option value="">rate the product</option>
+          </select>
+        </fieldset>
+        <fieldset class="form-group">
+          <textarea ng-model="reviews.review.body"
+                    class="form-control"
+                    placeholder="Write a short review of the product..."
+                    title="Review"
+                    required>
+                  </textarea>
+        </fieldset>
+        <fieldset class="form-group">
+          <input ng-model="reviews.review.author"
+                 type="email"
+                 class="form-control"
+                 placeholder="jimmyDean@example.org"
+                 title="Email"
+                 required>
+        </fieldset>
+        <div class="">reviewForm is {{ reviewForm.$valid }}</div>
+        <fieldset class="form-group">
+          <input
+          type="submit"
+          class="btn btn-primary pull-right"
+          value="Submit Review">
+        </fieldset>
+      </form>
+  </section>
 </div>
-
-
-<!-- <h4>Reviews</h4>
-<ul>
-  <li ng-repeat="review in product.reviews">
-    <blockquote>
-      <strong>Stars: {{ review.stars }}</strong>
-      <p>{{ review.body }}</p>
-      <div class="clearfix">by : {{ review.author }}</div>
-      <div class="">on {{ review.createdOn | date }}</div>
-  </li>
-</ul> -->
-
-
-<!-- <section class="tab">
-
-  <form name="reviewForm"
-         ng-controller="ReviewController as reviewCtrl"
-         ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)"
-         novalidate>
-
-      <blockquote cite="http://">
-        <strong>Stars: {{ reviewCtrl.review.stars }}</strong>
-        <p>{{ reviewCtrl.review.body }}</p>
-        <div class="clearfix">by : {{ reviewCtrl.review.author }}</div>
-      </blockquote>
-
-      <h4>Submit a Review</h4>
-      <fieldset class="form-group">
-        <select
-            class="form-control"
-            ng-model="reviewCtrl.review.stars"
-            ng-options="stars for stars in [5,4,3,2,1]"
-            title="stars"
-            required>
-            <option value="">rate the product</option>
-        </select>
-      </fieldset>
-      <fieldset class="form-group">
-        <textarea ng-model="reviewCtrl.review.body"
-                  class="form-control"
-                  placeholder="Write a short review of the product..."
-                  title="Review"
-                  required>
-                </textarea>
-      </fieldset>
-      <fieldset class="form-group">
-        <input ng-model="reviewCtrl.review.author"
-               type="email"
-               class="form-control"
-               placeholder="jimmyDean@example.org"
-               title="Email"
-               required>
-      </fieldset>
-      <div class="">reviewForm is {{ reviewForm.$valid }}</div>
-      <fieldset class="form-group">
-        <input
-        type="submit"
-        class="btn btn-primary pull-right"
-        value="Submit Review">
-      </fieldset>
-    </form>
-</section> -->
