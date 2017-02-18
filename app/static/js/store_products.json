@@ -10,7 +10,7 @@
     "images": [
       "static/images/gem-02.gif",
       "static/images/gem-05.gif",
-      "istatic/images/gem-09.gif"
+      "static/images/gem-09.gif"
     ],
     "reviews": [{
       "stars": 5,
@@ -60,10 +60,8 @@
     "color": "#CCC",
     "faces": 14,
     "images": [
-      {
-        "full": "static/images/blue-gem.jpg",
-        "thumb": "static/images/gem-orange.png"
-      }
+        "static/images/blue-gem.jpg",
+        "static/images/gem-orange.png"
     ],
     "reviews": [
       {
@@ -89,14 +87,9 @@
     "color": "#EEE",
     "faces": 12,
     "images": [
-      {
-        "full": "static/images/gem-icon.png",
-        "thumb": "static/images/gem-red.gif"
-      },
-      {
-        "full": "",
-        "thumb": "static/images/gem-orange.png"
-      }
+      "static/images/gem-icon.png",
+      "static/images/gem-red.gif",
+      "static/images/gem-orange.png"
     ],
     "reviews": [
       {
@@ -153,10 +146,8 @@
     "color": "#000",
     "faces": 6,
     "images": [
-      {
-        "full": "static/images/green-gem.png",
-        "thumb": "static/images/gem-red.gif"
-      }
+      "static/images/green-gem.png",
+      "static/images/gem-red.gif"
     ],
     "reviews": [
       {

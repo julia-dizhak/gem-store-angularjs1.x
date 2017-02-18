@@ -67,8 +67,9 @@ img{
 .img-thumbnails .thumbnail {
   background: #f8f8f8;
   border: 0;
-  margin-right: 25px;
+  margin-right: 5px;
   min-height: 50px;
+  cursor: pointer;
 }
 
 .img-thumbnails .thumbnail:last-child {
@@ -77,6 +78,7 @@ img{
 
 .nav-pills {
   margin-bottom: 30px;
+  clear: both;
 }
 
 .nav-pills > li > a:hover,
