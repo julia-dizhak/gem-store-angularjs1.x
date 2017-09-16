@@ -29,17 +29,6 @@
     };
   });
 
-  // app.controller('TabController', function() {
-  //   this.tab = 1;
-  //
-  //   this.setTab = function(setTab) {
-  //     this.tab = setTab;
-  //   };
-  //   this.isSet = function(isSet) {
-  //     return this.tab === isSet;
-  //   };
-  // });
-
   app.directive("productTabs", function() {
     return {
       restrict: "E",
@@ -61,37 +50,3 @@
   });
 
 })();
-
-//
-// (function() {
-//   var app = angular.module('store-directives', []);
-//
-//
-//
-//
-//
-//
-//
-//   app.directive('productDescription', function(){
-//     return {
-//       restrict: 'E',
-//       templateUrl: 'includes/product_description.html'
-//     };
-//   });
-//
-//   app.directive('productSpecs', function(){
-//     return {
-//       restrict: 'A',
-//       templateUrl: 'includes/product_specs.html'
-//     };
-//   });
-//
-//   app.directive('productReview', function(){
-//     return {
-//       restrict: 'E',
-//       templateUrl: 'includes/product_review.html'
-//     };
-//   });
-//
-//
-// })();

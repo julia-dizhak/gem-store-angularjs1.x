@@ -20,7 +20,7 @@
 
   app.controller('ReviewController', function() {
     this.review = {};
-    console.log(this.review);
+    //console.log(this.review);
 
     this.addReview = function(product) {
       this.review.createdOn = Date.now();
